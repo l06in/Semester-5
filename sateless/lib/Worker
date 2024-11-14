@@ -9,18 +9,18 @@ class WorkerController extends GetxController {
   // variabel relatif yang akan kita monitor
   var count = 0.obs;
 
-  @override
+      @override
   void onInit() {
     ever(count, (_) => print("ever: Count changed to $count"));
     once(count, (_) => print("once: Count changed to $count"));
     interval(count, (_) => print("interval: Count changed to $count"), time: Duration(seconds: 4));
 
     super.onInit();
-  }
+      }
 
-  void  increment() {
+      void  increment() {
     count++;
-  }
+      }
 }
 
 class MyApp extends StatelessWidget {
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
 }
 
 class WorkerExample extends StatelessWidget {
-  final WorkerController wc = Get.put(WorkerController());
+ final WorkerController wc = Get.put(WorkerController());
 
 
   @override
@@ -48,8 +48,8 @@ class WorkerExample extends StatelessWidget {
           Obx(() => Text("Count: ${wc.count}", style: TextStyle(fontSize: 24))),
           SizedBox(height: 20),
           ElevatedButton(
-            onPressed: wc.increment,
-            child: Text("Increment"),
+              onPressed: wc.increment,
+              child: Text("Increment"),
           ),
         ],
       ),
